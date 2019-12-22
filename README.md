@@ -1,6 +1,6 @@
-# Instagram...?
+# README
 
-### Add media root for save images
+## Add media root for save images
 
 ```bash
 $ pip install django-imagekit
@@ -19,7 +19,7 @@ from django.conf import settings
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 
-### Image processing in python
+## Image processing with python
 
 ```python
 from imagekit.models import ProcessedImageField
@@ -27,7 +27,6 @@ from imagekit.processors import ResizeToFill
 
 
 class Feed(models.Model):
-
     image = ProcessedImageField(
                 processors=[ResizeToFill(300, 300)],
                 format='PNG',
@@ -35,3 +34,4 @@ class Feed(models.Model):
                 upload_to='feeds'
             )
 ```
+
