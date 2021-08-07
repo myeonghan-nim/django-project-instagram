@@ -1,29 +1,21 @@
-# if you want web debugging, use from IPython import embed
 from django.shortcuts import render, redirect
-from .models import Feed
 
-# Create your views here.
+from .models import Feed
 
 
 def index(request):
-
-    feeds = Feed.objects.all()
-
     context = {
-        'feeds': feeds,
+        'feeds': Feed.objects.all(),
     }
-
     return render(request, 'index.html', context)
 
 
 def create(request):
-
     if request.method == 'POST':
-        content = request.POST.get('content')
-        image = request.FILES.get('image')
-
-        feed = Feed.objects.create(content=content, image=image)
-
-        return redirect('feeds:index')
+        Feed.objects.create(
+            content=request.POST.get('content'),
+            image=request.FILES.get('image')
+        )
+        return redirect('feed:index')
     else:
         return render(request, 'form.html')
