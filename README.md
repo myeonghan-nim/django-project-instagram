@@ -1,25 +1,25 @@
-# README
+# Clone Project: instagram
 
-## Add media root for save images
+## media root
 
 ```bash
-$ pip install django-imagekit
+$ pip install pillow django-imagekit
 ```
 
 ```python
-# in settings.py
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+```
 
-# in insta/urls.py
-from django.conf.urls.static import static
+```python
 from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 
-## Image processing with python
+## Image processing
 
 ```python
 from imagekit.models import ProcessedImageField
@@ -34,4 +34,3 @@ class Feed(models.Model):
                 upload_to='feeds'
             )
 ```
-
