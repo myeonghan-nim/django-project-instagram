@@ -7,13 +7,15 @@ import imagekit.models.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('feeds', '0001_initial'),
+        ('feed', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='feed',
             name='image',
-            field=imagekit.models.fields.ProcessedImageField(upload_to='feeds'),
+            field=imagekit.models.fields.ProcessedImageField(
+                upload_to='feeds'
+            ),
         ),
     ]
