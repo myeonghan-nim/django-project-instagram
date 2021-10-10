@@ -1,4 +1,4 @@
-# Clone Project: instagram
+# Project: instagram
 
 ## media root
 
