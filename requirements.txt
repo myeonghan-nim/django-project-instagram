@@ -1,5 +1,5 @@
 autopep8==1.5.7
 django-imagekit==4.0.2
-Pillow==10.0.1
+Pillow==10.2.0
 pipdeptree==2.1.0
 setuptools==65.5.1
